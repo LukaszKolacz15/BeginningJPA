@@ -1,6 +1,5 @@
 package com.akademiakodu.BeginningJPA.models.forms;
 
-import javafx.util.Builder;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
@@ -11,12 +10,25 @@ import javax.validation.constraints.Size;
 /**
  * Created by Lukasz Kolacz on 30.05.2017.
  */
-public class PersonForm {
 
+public class PersonForm {
+    @NotEmpty(message = "{NotEmpty.PersonForm.name}")
+    @Size(min = 5, max = 25, message = "{Size.PersonForm.name}")
     private String name;
+
+    @NotEmpty(message = "{NotEmpty.PersonForm.lastname")
+    @Size(min = 5, max = 25, message = "{Size.PersonForm.lastname}")
     private String lastname;
+
+    @Range(min=18, max=150, message = "{Range.PersonForm.age}")
     private int age;
+
+    @NotEmpty(message = "{NotEmpty.PersonForm.number}")
+    @Pattern(regexp = "[0-9]{3}-[0-9]{3}-[0-9]{3}", message = "{Pattern.PersonForm.number}")
     private String number;
+
+    @NotEmpty(message = "{NotEmpty.PersonForm.email}")
+    @Email(message = "{Email.PersonForm.email}")
     private String email;
 
     public PersonForm() {
@@ -73,23 +85,11 @@ public class PersonForm {
 
 
     public static class Builder {
-        @NotEmpty
-        @Size(min = 5, max = 25)
+
         private String name;
-        
-        @NotEmpty
         private String lastname;
-
-        @NotEmpty
-        @Range(min=18, max = 150)
         private int age;
-
-        @NotEmpty
-        @Pattern(regexp = "[0-9]{3}-[0-9]{3}-[0-9]{3}")
         private String number;
-
-        @NotEmpty
-        @Email
         private String email;
 
         public Builder(String name) {

@@ -1,5 +1,7 @@
 package com.akademiakodu.BeginningJPA.models;
 
+import com.akademiakodu.BeginningJPA.models.forms.PersonForm;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,15 +23,20 @@ public class Person {
     private String email;
 
 
-//    TODO add 2 public constructors
-
-
     public Person(String name, String lastname, int age, String number, String email) {
         this.name = name;
         this.lastname = lastname;
         this.age = age;
         this.number = number;
         this.email = email;
+    }
+
+    public Person(PersonForm personForm) {
+        name = personForm.getName();
+        lastname = personForm.getLastname();
+        age = personForm.getAge();
+        number = personForm.getNumber();
+        email = personForm.getEmail();
     }
 
     public int getId() {
