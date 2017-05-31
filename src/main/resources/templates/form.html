@@ -2,16 +2,21 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>NewForm</title>
+    <title>Form</title>
 </head>
 <body>
 <center>
     <form action="#" th:action="@{newform}" th:object="${personObject}" method="post">
         <p>Imię: <input type="text" th:field="*{name}"></p>
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error ex.</span>
         <p>Nazwisko: <input type="text" th:field="*{lastname}"></p>
+            <span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">Name error ex.</span>
         <p>Wiek: <input type="text" th:field="*{age}"></p>
+            <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Name error ex.</span>
         <p>Numer telefonu: <input type="text" th:field="*{number}"></p>
+            <span th:if="${#fields.hasErrors('number')}" th:errors="*{number}">Name error ex.</span>
         <p>email: <input type="text" th:field="*{email}"></p>
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Name error ex.</span>
         <p><input type="submit" th:value="Wyślij"/>
     </form>
 </center>

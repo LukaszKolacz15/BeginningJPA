@@ -1,11 +1,13 @@
 package com.akademiakodu.BeginningJPA.models;
 
 import com.akademiakodu.BeginningJPA.models.forms.PersonForm;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 
 /**
  * Created by Lukasz Kolacz on 30.05.2017.

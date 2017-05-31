@@ -16,7 +16,7 @@ public class PersonForm {
     @Size(min = 5, max = 25, message = "{Size.PersonForm.name}")
     private String name;
 
-    @NotEmpty(message = "{NotEmpty.PersonForm.lastname")
+    @NotEmpty(message = "{NotEmpty.PersonForm.lastname}")
     @Size(min = 5, max = 25, message = "{Size.PersonForm.lastname}")
     private String lastname;
 
